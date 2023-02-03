@@ -44,3 +44,21 @@ print(list(range(-1, -100, -5)))
 # * enumerate function have arguments as (iterable object, start = 0 as a default value)
 seasons = ["spring", "winter", "summer", "fall"]
 print(list(enumerate(seasons)))
+
+# * break statement is a loop control statement. It is used to control the sequence of the loop
+for n in range(2, 20):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, "equals", x, "*", n // x)
+            break
+    else:
+        print(n, "is a prime number")
+
+# * continue : It continues with the next cycle of the nearest enclosing loop.
+for num in range(2, 10):
+    if num % 2 == 0:
+        print("Found an even number", num)
+        continue
+    print("Found an odd number", num)
+
+# * pass statement does nothing. It can be used when a statement is required syntactically but the program requires no action
