@@ -20,3 +20,29 @@ print("Updated monthly expenses after adding June:", list_of_monthly_expenses)
 # 5. Correcting April's expense after getting a 200 dollar refund
 list_of_monthly_expenses[3] -= 200
 print("Updated expenses after the refund in April:", list_of_monthly_expenses)
+
+# List of heroes
+heros = ["spider man", "thor", "hulk", "iron man", "captain america"]
+
+# 1. Print the number of heroes in the list
+print("Length of the list:", len(heros))
+
+# 2. Add 'black panther' to the end of the list
+heros.append("black panther")
+
+# 3. You realize that 'black panther' should be placed after 'hulk'.
+#    First, remove 'black panther' from the end and then insert it after 'hulk'.
+heros.remove("black panther")  # Remove 'black panther'
+index_of_hulk = heros.index("hulk")  # Find the position of 'hulk'
+heros.insert(index_of_hulk + 1, "black panther")  # Insert 'black panther' after 'hulk'
+print(heros)
+
+# 4. Replace 'thor' and 'hulk' with 'doctor strange' because they get angry easily.
+heros[1:3] = [
+    "doctor strange"
+]  # Replace items at positions 1 and 2 with 'doctor strange'
+print(heros)
+
+# 5. Sort the heroes list in alphabetical order
+heros.sort()
+print(heros)
