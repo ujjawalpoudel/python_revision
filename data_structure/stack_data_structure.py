@@ -37,6 +37,40 @@ def reverse_string(s):
 
 
 # Test the reverse_string function
-if __name__ == "__main__":
-    print(reverse_string("We will conquer COVI-19"))  # Output: 91-IVOC ereuqnoc lliw eW
-    print(reverse_string("I am the king"))  # Output: gnik eht ma I
+
+print(reverse_string("We will conquer COVI-19"))  # Output: 91-IVOC ereuqnoc lliw eW
+print(reverse_string("I am the king"))  # Output: gnik eht ma I
+
+
+# Function to check if the parentheses are balanced
+def is_balanced(string):
+    stack = Stack()
+
+    # Dictionary to match opening and closing parentheses
+    matching_parentheses = {")": "(", "}": "{", "]": "["}
+
+    # Iterate over each character in the string
+    for char in string:
+        # If character is an opening bracket, push it onto the stack
+        if char in "({[":
+            stack.push(char)
+        # If character is a closing bracket
+        elif char in ")}]":
+            # If stack is empty, it means there's no opening bracket to match
+            if stack.is_empty():
+                return False
+            # Pop the last opening bracket and check if it matches the current closing bracket
+            top = stack.pop()
+            if matching_parentheses[char] != top:
+                return False
+
+    # If stack is empty, all parentheses were matched correctly
+    return stack.is_empty()
+
+
+print(is_balanced("({a+b})"))  # Output: True
+print(is_balanced("))((a+b}{"))  # Output: False
+print(is_balanced("((a+b))"))  # Output: True
+print(is_balanced("((a+g))"))  # Output: True
+print(is_balanced("))"))  # Output: False
+print(is_balanced("[a+b]*(x+2y)*{gg+kk}"))  # Output: True
